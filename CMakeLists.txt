@@ -1,0 +1,10 @@
+cmake_minimum_required( VERSION 3.10 )
+project( facto )
+set( CMAKE_CXX_STANDARD 17 )
+
+add_executable( facto facto.cpp )
+if( UNIX )
+	target_link_libraries( facto ${CMAKE_CURRENT_SOURCE_DIR}/gmp/linux/libgmp.a )
+else( UNIX )
+	target_link_libraries( facto ${CMAKE_CURRENT_SOURCE_DIR}/gmp/win64/libgmp.a )
+endif( UNIX )
